@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Tico Tigre - Aventuras de Bolso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="game-shell" aria-label="Jogo de plataforma 2D">
+        <canvas id="gameCanvas" width="960" height="540"></canvas>
+        <section id="hud" aria-live="polite">
+            <div>
+                <strong id="levelName">Fase 1</strong>
+                <span id="statusText">Pegue turbinas eólicas e alcance a bandeira.</span>
+            </div>
+            <div class="stats">
+                <span id="coins">Turbinas: 0</span>
+                <span id="lives">Vidas: 3</span>
+            </div>
+        </section>
+        <nav id="touchControls" aria-label="Controles de toque">
+            <div class="touch-group">
+                <button class="touch-button" type="button" data-key="ArrowLeft" aria-label="Mover para esquerda">◀</button>
+                <button class="touch-button" type="button" data-key="ArrowRight" aria-label="Mover para direita">▶</button>
+            </div>
+            <button class="touch-button jump" type="button" data-key=" " aria-label="Pular">▲</button>
+        </nav>
+        <div id="startPanel">
+            <h1>Tico Tigre</h1>
+            <p>Um jogo de plataforma colorido, com fases curtas e um tigre de pelúcia como herói.</p>
+            <button id="startButton" type="button">Começar</button>
+        </div>
+    </main>
+    <script src="game.js"></script>
+</body>
+</html>
