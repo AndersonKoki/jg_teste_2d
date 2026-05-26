@@ -146,51 +146,100 @@ class Player {
 
         ctx.save();
         ctx.translate(Math.round(this.x - cameraX + this.width / 2), Math.round(this.y + this.height / 2 + bob));
-        ctx.scale(this.face, 1);
+        ctx.scale(1 + Math.abs(this.vx) * 0.008, 1);
 
-        ctx.fillStyle = "#c6792e";
-        rounded(-18, -7, 36, 36, 11);
-        ctx.fill();
-        ctx.fillStyle = "#f0a34f";
-        rounded(-12, -4, 24, 28, 9);
-        ctx.fill();
-
-        ctx.strokeStyle = "#2a1d18";
-        ctx.lineWidth = 5;
+        ctx.strokeStyle = "#1f1713";
+        ctx.lineCap = "round";
+        ctx.lineWidth = 7;
         ctx.beginPath();
-        ctx.moveTo(-18, 1);
-        ctx.quadraticCurveTo(-36, -4, -34, -18);
+        ctx.moveTo(-23, 4);
+        ctx.quadraticCurveTo(-38, 14, -29, 29);
         ctx.stroke();
 
-        ctx.fillStyle = "#b6672b";
-        rounded(-16, 20, 11, 16, 4);
-        ctx.fill();
-        rounded(5, 20, 11, 16, 4);
-        ctx.fill();
-
-        ctx.fillStyle = "#f2a95a";
-        rounded(-15, -47, 33, 33, 10);
-        ctx.fill();
-        ctx.fillStyle = "#c97833";
-        ear(-12, -45);
-        ear(12, -45);
-        ctx.fillStyle = "#fff1c8";
-        rounded(-7, -29, 16, 11, 5);
-        ctx.fill();
-
-        ctx.fillStyle = "#241814";
-        stripe(-10, -44, 8, 13);
-        stripe(3, -45, 7, 14);
-        stripe(13, -35, 5, 10);
-        ctx.fillRect(-4, -28, 8, 4);
+        ctx.fillStyle = "#d18337";
         ctx.beginPath();
-        ctx.arc(-6, -34, 2.6, 0, Math.PI * 2);
-        ctx.arc(7, -34, 2.6, 0, Math.PI * 2);
+        ctx.ellipse(-21, 15, 11, 19, 0.45, 0, Math.PI * 2);
+        ctx.ellipse(21, 15, 11, 19, -0.45, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#f4ead6";
+        ctx.beginPath();
+        ctx.ellipse(-23, 30, 10, 7, -0.2, 0, Math.PI * 2);
+        ctx.ellipse(23, 30, 10, 7, 0.2, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = "#fff9df";
-        ctx.fillRect(-21, 0, 5, 7);
-        ctx.fillRect(16, 1, 5, 7);
+        ctx.fillStyle = "#c87932";
+        ctx.beginPath();
+        ctx.ellipse(0, 8, 21, 26, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#f3a552";
+        ctx.beginPath();
+        ctx.ellipse(0, 9, 13, 20, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#1f1713";
+        plushStripe(-16, -12, 8, 26, -0.35);
+        plushStripe(3, -16, 8, 28, 0.25);
+        plushStripe(14, -7, 7, 22, 0.5);
+
+        ctx.fillStyle = "#d4893c";
+        ctx.beginPath();
+        ctx.ellipse(-18, -34, 10, 12, -0.5, 0, Math.PI * 2);
+        ctx.ellipse(18, -34, 10, 12, 0.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#e9dcc9";
+        ctx.beginPath();
+        ctx.ellipse(-19, -35, 7, 8, -0.5, 0, Math.PI * 2);
+        ctx.ellipse(19, -35, 7, 8, 0.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#d98b3e";
+        ctx.beginPath();
+        ctx.ellipse(0, -27, 25, 24, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#1f1713";
+        plushStripe(-19, -40, 8, 28, -0.55);
+        plushStripe(-6, -48, 7, 19, -0.1);
+        plushStripe(8, -45, 8, 25, 0.4);
+        plushStripe(18, -33, 7, 18, 0.7);
+
+        ctx.fillStyle = "#f3ead8";
+        ctx.beginPath();
+        ctx.ellipse(-7, -32, 11, 13, -0.1, 0, Math.PI * 2);
+        ctx.ellipse(7, -32, 11, 13, 0.1, 0, Math.PI * 2);
+        ctx.ellipse(0, -18, 19, 12, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#171514";
+        ctx.beginPath();
+        ctx.arc(-8, -35, 4.3, 0, Math.PI * 2);
+        ctx.arc(8, -35, 4.3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(-9.5, -36.5, 1.4, 0, Math.PI * 2);
+        ctx.arc(6.5, -36.5, 1.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = "#7a463d";
+        ctx.beginPath();
+        ctx.ellipse(0, -22, 8, 6, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = "#5a332e";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(0, -16);
+        ctx.lineTo(0, -7);
+        ctx.quadraticCurveTo(-5, -3, -10, -7);
+        ctx.moveTo(0, -7);
+        ctx.quadraticCurveTo(5, -3, 10, -7);
+        ctx.stroke();
+
+        ctx.fillStyle = "#5a332e";
+        [-13, -7, 8, 14].forEach((x, index) => {
+            ctx.beginPath();
+            ctx.arc(x, -15 + (index % 2) * 4, 1.2, 0, Math.PI * 2);
+            ctx.fill();
+        });
         ctx.restore();
     }
 }
@@ -425,7 +474,7 @@ function hurtPlayer(fell) {
         playSadTrombone();
         startPanel.classList.remove("hidden");
         startButton.textContent = "Tentar de novo";
-        startPanelText.textContent = "Tico perdeu o enchimento. Vamos tentar outra vez?";
+        startPanelText.textContent = "Tigrinho perdeu o enchimento. Vamos tentar outra vez?";
         levelIndex = 0;
         totalButtons = 0;
         player.lives = 3;
@@ -600,6 +649,20 @@ function stripe(x, y, width, height) {
     ctx.lineTo(x + width - 2, y + height);
     ctx.lineTo(x - 2, y + height - 2);
     ctx.closePath();
+}
+
+function plushStripe(x, y, width, height, tilt) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(tilt);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(width, 3);
+    ctx.lineTo(width - 2, height);
+    ctx.lineTo(-2, height - 3);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
 }
 
 function ensureAudio() {
